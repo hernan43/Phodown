@@ -1,0 +1,9 @@
+<h2>
+  Open challenges
+</h2>
+
+<ul>
+  <% Challenge.open.each do |challenge| %>
+    <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
+  <% end %>
+</ul>
