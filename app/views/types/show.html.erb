@@ -1,0 +1,20 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @type.description %>
+</p>
+
+<p>
+  <b>Is hidden:</b>
+  <%= @type.is_hidden %>
+</p>
+
+
+<%= link_to 'Edit', edit_type_path(@type) %> |
+<%= link_to 'Back', types_path %>

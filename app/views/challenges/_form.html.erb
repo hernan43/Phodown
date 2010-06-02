@@ -19,12 +19,20 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :type_id %><br />
-    <%= f.text_field :type_id %>
+    <%= f.label :type_id, "Type of challenge" %><br />
+    <%= f.collection_select(
+      :type_id, 
+      Type.active,
+      :id, 
+      :name) %>
   </div>
   <div class="field">
-    <%= f.label :rules_id %><br />
-    <%= f.text_field :rules_id %>
+    <%= f.label :rule_id, "Rules" %><br />
+    <%= f.collection_select(
+      :rule_id, 
+      Rule.active,
+      :id, 
+      :name) %>
   </div>
   <div class="field">
     <%= f.label :start %><br />

@@ -9,16 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100602225137) do
+ActiveRecord::Schema.define(:version => 20100602230435) do
 
   create_table "challenges", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
     t.integer  "type_id"
-    t.integer  "rules_id"
+    t.integer  "rule_id"
     t.datetime "start"
     t.datetime "end"
+    t.boolean  "is_hidden",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rules", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.boolean  "is_hidden",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,6 +41,14 @@ ActiveRecord::Schema.define(:version => 20100602225137) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_hidden",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

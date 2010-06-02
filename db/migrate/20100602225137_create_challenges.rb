@@ -5,7 +5,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :type_id
-      t.integer :rules_id
+      t.integer :rule_id
       t.datetime :start
       t.datetime :end
       t.boolean :is_hidden, :default => false

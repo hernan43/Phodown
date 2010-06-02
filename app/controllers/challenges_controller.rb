@@ -1,4 +1,6 @@
 class ChallengesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /challenges
   # GET /challenges.xml
   def index

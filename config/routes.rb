@@ -1,4 +1,8 @@
 Phodown::Application.routes.draw do |map|
+  resources :types
+
+  resources :rules
+
   resources :challenges
 
   devise_for :users
