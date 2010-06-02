@@ -8,7 +8,7 @@ gem 'rails', '3.0.0.beta3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Use unicorn as the web server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -26,3 +26,4 @@ gem 'unicorn'
 # end
 
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
+gem 'devise', '1.1.rc1'  
