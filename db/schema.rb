@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100602213605) do
+ActiveRecord::Schema.define(:version => 20100602225137) do
+
+  create_table "challenges", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "type_id"
+    t.integer  "rules_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean  "is_hidden",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

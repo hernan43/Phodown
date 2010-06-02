@@ -8,6 +8,21 @@
 </head>
 <body>
 
+<header>
+phodown
+</header>
+
+<nav>
+  <ul>
+    <% if user_signed_in? %>
+      <li>Signed in as <%= current_user.email %>. Not you? <%= link_to "sign out", destroy_user_session_path %></li>
+    <% else %>
+      <li><%= link_to "sign in", new_user_session_path %></li>
+      <li><%= link_to "sign up", new_user_registration_path %></li>
+    <% end %>
+  </ul>
+</nav>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 

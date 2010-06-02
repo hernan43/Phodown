@@ -1,4 +1,6 @@
 Phodown::Application.routes.draw do |map|
+  resources :challenges
+
   devise_for :users
 
   # You can have the root of your site routed with "root"
