@@ -1,13 +1,15 @@
 <p class="notice"><%= notice %></p>
 
+<%= image_tag @entry.photo.url(:thumb) %>
+
 <p>
-  <b>User:</b>
-  <%= @entry.user_id %>
+  <b>Submitter:</b>
+  <%= @entry.user.email %>
 </p>
 
 <p>
   <b>Challenge:</b>
-  <%= @entry.challenge_id %>
+  <%= @entry.challenge.name %>
 </p>
 
 <p>
@@ -26,60 +28,11 @@
 </p>
 
 <p>
-  <b>Is disqualified:</b>
-  <%= @entry.is_disqualified %>
-</p>
-
-<p>
-  <b>Is hidden:</b>
-  <%= @entry.is_hidden %>
-</p>
-
-<p>
-  <b>Average rating:</b>
-  <%= @entry.average_rating %>
-</p>
-
-<p>
-  <b>Shutter speed:</b>
-  <%= @entry.shutter_speed %>
-</p>
-
-<p>
-  <b>Aperture:</b>
-  <%= @entry.aperture %>
-</p>
-
-<p>
-  <b>Focal length:</b>
-  <%= @entry.focal_length %>
-</p>
-
-<p>
-  <b>Iso:</b>
-  <%= @entry.iso %>
-</p>
-
-<p>
-  <b>Flash:</b>
-  <%= @entry.flash %>
-</p>
-
-<p>
-  <b>Exif:</b>
+  <b>EXIF:</b>
+  <pre>
   <%= @entry.exif %>
-</p>
-
-<p>
-  <b>Camera model:</b>
-  <%= @entry.camera_model %>
-</p>
-
-<p>
-  <b>Camera make:</b>
-  <%= @entry.camera_make %>
+  </pre>
 </p>
 
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<%= link_to 'Back', challenge_entries_path %>

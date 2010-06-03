@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :get_challenge
 
   # GET /entries
   # GET /entries.xml
@@ -26,7 +27,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   # GET /entries/new.xml
   def new
-    @entry = Entry.new
+    @entry = current_user.entries.where(:challenge_id => @challenge.id).first || Entry.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,18 +36,20 @@ class EntriesController < ApplicationController
   end
 
   # GET /entries/1/edit
-  def edit
-    @entry = Entry.find(params[:id])
-  end
+#  def edit
+#    @entry = current_user.entries.find(params[:id]) || Entry.new
+#  end
 
   # POST /entries
   # POST /entries.xml
   def create
     @entry = Entry.new(params[:entry])
+    @entry.user = current_user
+    @entry.challenge = @challenge
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to(@entry, :notice => 'Entry was successfully created.') }
+        format.html { redirect_to([@challenge, @entry], :notice => 'Entry was successfully created.') }
         format.xml  { render :xml => @entry, :status => :created, :location => @entry }
       else
         format.html { render :action => "new" }
@@ -62,7 +65,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
-        format.html { redirect_to(@entry, :notice => 'Entry was successfully updated.') }
+        format.html { redirect_to([@challenge, @entry], :notice => 'Entry was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -81,5 +84,11 @@ class EntriesController < ApplicationController
       format.html { redirect_to(entries_url) }
       format.xml  { head :ok }
     end
+  end
+
+protected
+  
+  def get_challenge
+    @challenge = Challenge.find(params[:challenge_id])
   end
 end

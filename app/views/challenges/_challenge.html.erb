@@ -3,4 +3,9 @@
   <p>
     <%= challenge.description %>
   </p>
+  <% if challenge.is_open? %>
+    <p>
+      <%= link_to "Enter this challenge", new_challenge_entry_path(challenge) %>
+    </p>
+  <% end %>
 </section>

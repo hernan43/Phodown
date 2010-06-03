@@ -1,11 +1,13 @@
 Phodown::Application.routes.draw do |map|
-  resources :entries
+  #resources :entries
 
   resources :types
 
   resources :rules
 
-  resources :challenges
+  resources :challenges do
+    resources :entries, :except => [:edit, :destroy]  
+  end
 
   devise_for :users
 
