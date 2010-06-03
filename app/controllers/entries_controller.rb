@@ -1,14 +1,16 @@
 class EntriesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /entries
   # GET /entries.xml
-  def index
-    @entries = Entry.all
+#  def index
+#    @entries = Entry.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @entries }
-    end
-  end
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @entries }
+#    end
+#  end
 
   # GET /entries/1
   # GET /entries/1.xml

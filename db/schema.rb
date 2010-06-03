@@ -30,19 +30,23 @@ ActiveRecord::Schema.define(:version => 20100603165213) do
     t.string   "title"
     t.text     "description"
     t.string   "location"
-    t.boolean  "is_disqualified", :default => false
-    t.boolean  "is_hidden",       :default => false
+    t.boolean  "is_disqualified",    :default => false
+    t.boolean  "is_hidden",          :default => false
     t.float    "average_rating"
     t.string   "shutter_speed"
     t.string   "aperture"
     t.string   "focal_length"
     t.string   "iso"
-    t.boolean  "flash",           :default => false
+    t.boolean  "flash",              :default => false
     t.text     "exif"
     t.string   "camera_model"
     t.string   "camera_make"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "rules", :force => true do |t|
