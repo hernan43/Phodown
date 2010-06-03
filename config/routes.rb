@@ -1,4 +1,6 @@
 Phodown::Application.routes.draw do |map|
+  resources :entries
+
   resources :types
 
   resources :rules

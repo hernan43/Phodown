@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100602230435) do
+ActiveRecord::Schema.define(:version => 20100603165213) do
 
   create_table "challenges", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,27 @@ ActiveRecord::Schema.define(:version => 20100602230435) do
     t.datetime "start"
     t.datetime "end"
     t.boolean  "is_hidden",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entries", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "location"
+    t.boolean  "is_disqualified", :default => false
+    t.boolean  "is_hidden",       :default => false
+    t.float    "average_rating"
+    t.string   "shutter_speed"
+    t.string   "aperture"
+    t.string   "focal_length"
+    t.string   "iso"
+    t.boolean  "flash",           :default => false
+    t.text     "exif"
+    t.string   "camera_model"
+    t.string   "camera_make"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

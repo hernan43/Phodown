@@ -1,0 +1,85 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @entry.user_id %>
+</p>
+
+<p>
+  <b>Challenge:</b>
+  <%= @entry.challenge_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @entry.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @entry.description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @entry.location %>
+</p>
+
+<p>
+  <b>Is disqualified:</b>
+  <%= @entry.is_disqualified %>
+</p>
+
+<p>
+  <b>Is hidden:</b>
+  <%= @entry.is_hidden %>
+</p>
+
+<p>
+  <b>Average rating:</b>
+  <%= @entry.average_rating %>
+</p>
+
+<p>
+  <b>Shutter speed:</b>
+  <%= @entry.shutter_speed %>
+</p>
+
+<p>
+  <b>Aperture:</b>
+  <%= @entry.aperture %>
+</p>
+
+<p>
+  <b>Focal length:</b>
+  <%= @entry.focal_length %>
+</p>
+
+<p>
+  <b>Iso:</b>
+  <%= @entry.iso %>
+</p>
+
+<p>
+  <b>Flash:</b>
+  <%= @entry.flash %>
+</p>
+
+<p>
+  <b>Exif:</b>
+  <%= @entry.exif %>
+</p>
+
+<p>
+  <b>Camera model:</b>
+  <%= @entry.camera_model %>
+</p>
+
+<p>
+  <b>Camera make:</b>
+  <%= @entry.camera_make %>
+</p>
+
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>

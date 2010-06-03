@@ -1,0 +1,53 @@
+<h1>Listing entries</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Challenge</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Is disqualified</th>
+    <th>Is hidden</th>
+    <th>Average rating</th>
+    <th>Shutter speed</th>
+    <th>Aperture</th>
+    <th>Focal length</th>
+    <th>Iso</th>
+    <th>Flash</th>
+    <th>Exif</th>
+    <th>Camera model</th>
+    <th>Camera make</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.user_id %></td>
+    <td><%= entry.challenge_id %></td>
+    <td><%= entry.title %></td>
+    <td><%= entry.description %></td>
+    <td><%= entry.location %></td>
+    <td><%= entry.is_disqualified %></td>
+    <td><%= entry.is_hidden %></td>
+    <td><%= entry.average_rating %></td>
+    <td><%= entry.shutter_speed %></td>
+    <td><%= entry.aperture %></td>
+    <td><%= entry.focal_length %></td>
+    <td><%= entry.iso %></td>
+    <td><%= entry.flash %></td>
+    <td><%= entry.exif %></td>
+    <td><%= entry.camera_model %></td>
+    <td><%= entry.camera_make %></td>
+    <td><%= link_to 'Show', entry %></td>
+    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entry', new_entry_path %>

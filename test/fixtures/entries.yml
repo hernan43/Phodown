@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  challenge_id: 1
+  title: MyString
+  description: MyText
+  location: MyString
+  is_disqualified: false
+  is_hidden: false
+  average_rating: 1.5
+  shutter_speed: MyString
+  aperture: MyString
+  focal_length: MyString
+  iso: MyString
+  flash: false
+  exif: MyText
+  camera_model: MyString
+  camera_make: MyString
+
+two:
+  user_id: 1
+  challenge_id: 1
+  title: MyString
+  description: MyText
+  location: MyString
+  is_disqualified: false
+  is_hidden: false
+  average_rating: 1.5
+  shutter_speed: MyString
+  aperture: MyString
+  focal_length: MyString
+  iso: MyString
+  flash: false
+  exif: MyText
+  camera_model: MyString
+  camera_make: MyString
