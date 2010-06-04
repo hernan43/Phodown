@@ -8,7 +8,9 @@ Phodown::Application.routes.draw do |map|
   resources :rules
 
   resources :challenges do
-    resources :entries, :except => [:edit, :destroy]  
+    resources :entries, :except => [:edit, :destroy] do
+      get :rate, :on => :member
+    end
   end
 
   devise_for :users
