@@ -1,24 +1,22 @@
+<h2>
+  <%= @entry.title %>
+</h2>
+
 <%= image_tag @entry.photo.url(:original) %>
 
+<p>
+  <%= @entry.description %>
+</p>
+
+<hr/>
+
+<% if not @challenge.is_open?%>
 <p>
   <b>Submitter:</b>
   <%= @entry.user.email %>
 </p>
+<% end %>
 
-<p>
-  <b>Challenge:</b>
-  <%= @entry.challenge.name %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @entry.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @entry.description %>
-</p>
 
 <p>
   <b>Location:</b>
@@ -65,12 +63,13 @@
   <%= @entry.flash ? 'yes':'no' %>
 </p>
 
+<% if not @challenge.is_open?%>
 <p>
   <b>EXIF:</b>
   <pre>
   <%= @entry.exif %>
   </pre>
 </p>
-
+<% end %>
 
 <%= link_to 'Back', challenge_entries_path %>

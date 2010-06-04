@@ -1,38 +1,15 @@
-<p>
-  <b>Name:</b>
+<h2>
   <%= @challenge.name %>
-</p>
+</h2>
 
-<p>
-  <b>Submitter:</b>
-  <%= @challenge.user.email %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @challenge.description %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @challenge.type_id %>
-</p>
-
-<p>
-  <b>Rules:</b>
-  <%= @challenge.rule_id %>
-</p>
-
-<p>
-  <b>Start:</b>
-  <%= @challenge.start %>
-</p>
-
-<p>
-  <b>End:</b>
-  <%= @challenge.end %>
-</p>
-
-
-<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
-<%= link_to 'Back', challenges_path %>
+<ul>
+  <% @challenge.entries.each do |entry| %>
+    <li>
+      <%= link_to image_tag(entry.photo.url(:thumb)), challenge_entry_path(@challenge, entry) %>
+      <br/>
+      <%= entry.title %>
+      <br/>
+      <%= link_to "comment on this photo", "" %>
+    </li>
+  <% end %>
+</ul>
