@@ -1,4 +1,6 @@
 Phodown::Application.routes.draw do |map|
+  get "rating/rate"
+
   #resources :entries
 
   resources :types

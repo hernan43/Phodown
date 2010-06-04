@@ -1,8 +1,37 @@
+
+<%= image_tag @entry.photo.url(:original) %>
+
 <h2>
   <%= @entry.title %>
 </h2>
+<p>
+<strong>Challenge</strong>: <%= @entry.challenge.name %>
+</p>
 
-<%= image_tag @entry.photo.url(:original) %>
+<p>
+<% if @challenge.is_open? %>
+  <div id="rating">
+  <%= link_to "&laquo;".html_safe, "" %>
+  <% form_tag "" do %>
+    <ul>
+      <li><%= link_to "1", "" %></li>
+      <li><%= link_to "2", "" %></li>
+      <li><%= link_to "3", "" %></li>
+      <li><%= link_to "4", "" %></li>
+      <li><%= link_to "5", "" %></li>
+      <li><%= link_to "6", "" %></li>
+      <li><%= link_to "7", "" %></li>
+      <li><%= link_to "8", "" %></li>
+      <li><%= link_to "9", "" %></li>
+      <li><%= link_to "10", "" %></li>
+    </ul>
+  <% end %>
+  <%= link_to "&raquo;".html_safe, "" %>
+  </div>
+<% end %>
+</p>
+
+<% if not @challenge.is_open? %>
 
 <p>
   <%= @entry.description %>
@@ -10,13 +39,10 @@
 
 <hr/>
 
-<% if not @challenge.is_open?%>
 <p>
   <b>Submitter:</b>
   <%= @entry.user.email %>
 </p>
-<% end %>
-
 
 <p>
   <b>Location:</b>
@@ -72,4 +98,8 @@
 </p>
 <% end %>
 
-<%= link_to 'Back', challenge_entries_path %>
+<% end %>
+
+<p>
+<%= link_to 'Back', challenge_path(@entry.challenge) %>
+</p>
