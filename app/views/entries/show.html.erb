@@ -1,6 +1,4 @@
-<p class="notice"><%= notice %></p>
-
-<%= image_tag @entry.photo.url(:thumb) %>
+<%= image_tag @entry.photo.url(:original) %>
 
 <p>
   <b>Submitter:</b>
@@ -25,6 +23,46 @@
 <p>
   <b>Location:</b>
   <%= @entry.location %>
+</p>
+
+<% if @entry.camera_make %>
+<p>
+  <b>Camera make:</b>
+  <%= @entry.camera_make %>
+</p>
+<% end %>
+
+<% if @entry.camera_model %>
+<p>
+  <b>Camera model:</b>
+  <%= @entry.camera_model %>
+</p>
+<% end %>
+
+<% if @entry.aperture %>
+<p>
+  <b>Aperture:</b>
+  <%= @entry.aperture %>
+</p>
+<% end %>
+
+<% if @entry.shutter_speed %>
+<p>
+  <b>Shutter Speed:</b>
+  <%= @entry.shutter_speed %>
+</p>
+<% end %>
+
+<% if @entry.iso %>
+<p>
+  <b>ISO:</b>
+  <%= @entry.iso %>
+</p>
+<% end %>
+
+<p>
+  <b>Flash:</b>
+  <%= @entry.flash ? 'yes':'no' %>
 </p>
 
 <p>
