@@ -86,6 +86,19 @@ class EntriesController < ApplicationController
     end
   end
 
+  def rate
+    @entry = Entry.find(params[:id])
+    @rating = Rating.where(:user_id => current_user.id).where(:entry_id => @entry.id).first || Rating.new({:entry_id => @entry.id, :user_id => current_user.id})
+    @rating.value = params[:value]
+    @rating.save
+
+    respond_to do |format|
+      format.html { redirect_to(challenge_entry_path(@challenge, @entry)) }
+      format.xml  { head :ok }
+    end
+  end
+
+
 protected
   
   def get_challenge

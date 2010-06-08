@@ -9,6 +9,10 @@ class Challenge < ActiveRecord::Base
   scope :open,  proc { where("start < ?", DateTime.now).where("end > ?", DateTime.now).order("end ASC")}
 
   def is_open?
-    not Challenge.open.find(self.id).nil?
+    begin
+      not Challenge.open.find(self.id).nil?
+    rescue
+      false
+    end
   end
 end

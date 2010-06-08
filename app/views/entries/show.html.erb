@@ -14,16 +14,16 @@
   <%= link_to "&laquo;".html_safe, "" %>
   <% form_tag "" do %>
     <ul>
-      <li><%= link_to "1", "" %></li>
-      <li><%= link_to "2", "" %></li>
-      <li><%= link_to "3", "" %></li>
-      <li><%= link_to "4", "" %></li>
-      <li><%= link_to "5", "" %></li>
-      <li><%= link_to "6", "" %></li>
-      <li><%= link_to "7", "" %></li>
-      <li><%= link_to "8", "" %></li>
-      <li><%= link_to "9", "" %></li>
-      <li><%= link_to "10", "" %></li>
+      <li><%= link_to "1", rating_link(@entry, 1, current_user) %></li>
+      <li><%= link_to "2", rating_link(@entry, 2, current_user) %></li>
+      <li><%= link_to "3", rating_link(@entry, 3, current_user) %></li>
+      <li><%= link_to "4", rating_link(@entry, 4, current_user) %></li>
+      <li><%= link_to "5", rating_link(@entry, 5, current_user) %></li>
+      <li><%= link_to "6", rating_link(@entry, 6, current_user) %></li>
+      <li><%= link_to "7", rating_link(@entry, 7, current_user) %></li>
+      <li><%= link_to "8", rating_link(@entry, 8, current_user) %></li>
+      <li><%= link_to "9", rating_link(@entry, 9, current_user) %></li>
+      <li><%= link_to "10", rating_link(@entry, 10, current_user) %></li>
     </ul>
   <% end %>
   <%= link_to "&raquo;".html_safe, "" %>

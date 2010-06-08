@@ -15,6 +15,10 @@ class Entry < ActiveRecord::Base
     attachment_for(:photo).assign(file)
   end
 
+  def rating_for(user)
+    Rating.where(:entry_id => self.id).where(:user_id => user.id).first
+  end
+
   protected
   
   def string_fraction_to_float(fraction)
