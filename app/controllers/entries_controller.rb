@@ -94,6 +94,9 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(challenge_entry_path(@challenge, @entry)) }
+      format.js   { 
+        @value = params[:value]
+      }
       format.xml  { head :ok }
     end
   end

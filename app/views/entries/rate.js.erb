@@ -1,0 +1,3 @@
+$("#rating").html("<%= escape_javascript(render(:partial => 'rating_bar', :locals => {:entry => @entry})) %>");
+
+$("#rating_<%= @value %>").effect("highlight", {}, 3000);
