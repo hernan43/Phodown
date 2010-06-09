@@ -1,0 +1,16 @@
+<h3>Comments</h3>
+
+<% if commentable.comments.empty? %>
+  <p> 
+    There are no comments.
+  </p>
+<% end %>
+
+<ul id="comments-list" class="comments">
+<% commentable.comments.each do |comment| %>
+  <li><div class="comment-info"><strong><%= comment.user.email %></strong> <%= time_ago_in_words(comment.created_at ) %> ago</div><p><%= comment.comment %></p></li>
+<% end %>
+</ul>
+
+<%= render :partial => 'comments/form', :locals => {:commentable => commentable } %>
+

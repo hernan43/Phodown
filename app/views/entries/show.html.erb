@@ -88,3 +88,5 @@
 <p>
 <%= link_to 'Back', challenge_path(@entry.challenge) %>
 </p>
+
+<%= render :partial => 'comments/comments_section', :locals => {:commentable => @entry } %>

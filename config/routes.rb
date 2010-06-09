@@ -1,7 +1,9 @@
 Phodown::Application.routes.draw do |map|
   get "rating/rate"
 
-  #resources :entries
+  resources :entries do
+    resources :comments
+  end
 
   resources :types
 
