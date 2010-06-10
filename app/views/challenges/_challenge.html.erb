@@ -8,4 +8,10 @@
       <%= link_to "Enter this challenge", new_challenge_entry_path(challenge) %>
     </p>
   <% end %>
+
+  <% if challenge.is_voting? %>
+    <p>
+     <em><%= link_to "Voting ends in #{distance_of_time_in_words_to_now challenge.voting_end_date}", vote_challenge_path(challenge) %></em>
+    </p>
+  <% end %>
 </section>

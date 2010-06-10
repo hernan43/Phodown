@@ -10,6 +10,8 @@ Phodown::Application.routes.draw do |map|
   resources :rules
 
   resources :challenges do
+    get :vote, :on => :member
+    
     resources :entries, :except => [:edit, :destroy] do
       get :rate, :on => :member
     end

@@ -72,6 +72,14 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def vote
+    @challenge = Challenge.find(params[:id])
+    if @challenge.is_closed? and @challenge.is_voting? and @challenge.first_entry
+      redirect_to @challenge.first_entry
+    end
+    redirect_to :root
+  end
+
   # DELETE /challenges/1
   # DELETE /challenges/1.xml
   def destroy

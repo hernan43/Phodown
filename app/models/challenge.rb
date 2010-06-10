@@ -10,9 +10,19 @@ class Challenge < ActiveRecord::Base
   scope :voting,  proc { where("end < ?", DateTime.now).where("end > ?", DateTime.now - 7.days).order("end ASC")}
   scope :recent,  proc { where("end < ?", DateTime.now).where("end < ?", DateTime.now - 7.days).order("end ASC").limit(5)}
 
+  def first_entry
+    @first_entry ||= self.entries.order("id ASC").first
+  end
+
   def voting_end_date
     self.end + 7.days
   end
+
+  def is_voting?
+    self.is_closed? and DateTime.now < self.voting_end_date
+  end
+
+  def is_closed?; not self.is_open?; end
 
   def is_open?
     begin
