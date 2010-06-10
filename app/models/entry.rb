@@ -10,6 +10,9 @@ class Entry < ActiveRecord::Base
 
   before_create :set_average_rating
 
+  # tighten these up a bit
+  attr_accessible :title, :description, :location, :photo
+
   # override Paperclip's setter method so I can access the uploaded file
   # http://pastie.org/310107
   def photo=(file)
