@@ -21,6 +21,14 @@ class Entry < ActiveRecord::Base
     Rating.where(:entry_id => self.id).where(:user_id => user.id).first
   end
 
+  def next
+    @next ||= Entry.where("id > ?", self.id).where(:challenge_id => self.challenge_id).first || self
+  end
+
+  def previous
+    @previous ||= Entry.where("id < ?", self.id).where(:challenge_id => self.challenge_id).first || self
+  end
+
   protected
   
   def string_fraction_to_float(fraction)

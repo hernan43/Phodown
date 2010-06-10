@@ -4,19 +4,20 @@ class EntriesController < ApplicationController
 
   # GET /entries
   # GET /entries.xml
-#  def index
-#    @entries = Entry.all
+  def index
+    @entries = Entry.all
 
-#    respond_to do |format|
-#      format.html # index.html.erb
-#      format.xml  { render :xml => @entries }
-#    end
-#  end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @entries }
+    end
+  end
 
   # GET /entries/1
   # GET /entries/1.xml
   def show
     @entry = Entry.find(params[:id])
+    @challenge = @challenge || @entry.challenge
 
     respond_to do |format|
       format.html # show.html.erb
@@ -49,7 +50,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to([@challenge, @entry], :notice => 'Entry was successfully created.') }
+        format.html { redirect_to(@challenge, :notice => 'Entry was successfully created.') }
         format.xml  { render :xml => @entry, :status => :created, :location => @entry }
       else
         format.html { render :action => "new" }
@@ -65,7 +66,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
-        format.html { redirect_to([@challenge, @entry], :notice => 'Entry was successfully updated.') }
+        format.html { redirect_to(@challenge, :notice => 'Entry was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -93,7 +94,7 @@ class EntriesController < ApplicationController
     @rating.save
 
     respond_to do |format|
-      format.html { redirect_to(challenge_entry_path(@challenge, @entry)) }
+      format.html { redirect_to(@entry.next) }
       format.js   { 
         @value = params[:value]
       }
@@ -105,6 +106,6 @@ class EntriesController < ApplicationController
 protected
   
   def get_challenge
-    @challenge = Challenge.find(params[:challenge_id])
+    @challenge = Challenge.find(params[:challenge_id]) if params[:challenge_id]
   end
 end

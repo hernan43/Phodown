@@ -8,7 +8,7 @@
 
 <ul id="comments-list" class="comments">
 <% commentable.comments.each do |comment| %>
-  <li><div class="comment-info"><%= avatar_for(current_user) %><strong><%= comment.user.email %></strong> <%= time_ago_in_words(comment.created_at ) %> ago</div><p><%= comment.comment %></p></li>
+  <li><div class="comment-info"><%= avatar_for(comment.user) %><strong><%= comment.user.email %></strong> <%= time_ago_in_words(comment.created_at ) %> ago</div><p><%= comment.comment %></p></li>
 <% end %>
 </ul>
 

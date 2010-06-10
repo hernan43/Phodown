@@ -1,3 +1,5 @@
-$("#rating").html("<%= escape_javascript(render(:partial => 'rating_bar', :locals => {:entry => @entry})) %>");
-
-$("#rating_<%= @value %>").effect("highlight", {}, 3000);
+// $("#rating").html("<%= escape_javascript(render(:partial => 'rating_bar', :locals => {:entry => @entry})) %>");
+// $("#rating_<%= @value %>").effect("highlight", {}, 3000);
+// $("#next_link").effect("highlight", {}, 3000);
+location.href = $("#next_link").attr('href');
+// $("#next_link").click();
