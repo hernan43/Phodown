@@ -8,13 +8,11 @@
 <strong>Challenge</strong>: <%= @entry.challenge.name %>
 </p>
 
-<p>
-<% if @challenge.is_open? and not current_user.nil? %>
+<% if @challenge.is_voting? and not current_user.nil? %>
   <div id="rating">
     <%= render :partial => 'rating_bar' %>
   </div>
 <% end %>
-</p>
 
 <% if not @challenge.is_open? %>
 

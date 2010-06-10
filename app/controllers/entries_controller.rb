@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :is_admin?, :only => [:destroy]
   before_filter :get_challenge
+
 
   # GET /entries
   # GET /entries.xml

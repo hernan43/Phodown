@@ -18,6 +18,10 @@ class Challenge < ActiveRecord::Base
     self.end + 7.days
   end
 
+  def is_over?
+    self.is_closed? and not self.is_voting?
+  end
+
   def is_voting?
     self.is_closed? and DateTime.now < self.voting_end_date
   end

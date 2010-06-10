@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   def create
     @commentable = find_commentable  
     @comment = @commentable.comments.build(params[:comment])  

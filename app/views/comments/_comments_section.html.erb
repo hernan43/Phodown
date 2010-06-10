@@ -1,16 +1,23 @@
 <h3>Comments</h3>
 
-<% if commentable.comments.empty? %>
+<% if commentable.challenge.is_over? and commentable.comments.empty? %>
   <p> 
     There are no comments.
+  </p>
+<% else %>
+  <p>
+   Comment display is unavailable until the challenge is over. You can still see your own comments though.
   </p>
 <% end %>
 
 <ul id="comments-list" class="comments">
 <% commentable.comments.each do |comment| %>
-  <li><div class="comment-info"><%= avatar_for(comment.user) %><strong><%= comment.user.email %></strong> <%= time_ago_in_words(comment.created_at ) %> ago</div><p><%= comment.comment %></p></li>
+  <% if current_user == comment.user or commentable.challenge.is_over? %>
+    <li><div class="comment-info"><%= avatar_for(comment.user) %><strong><%= comment.user.email %></strong> <%= time_ago_in_words(comment.created_at ) %> ago</div><p><%= comment.comment %></p></li>
+  <% end %>
 <% end %>
 </ul>
 
+<% if current_user %>
 <%= render :partial => 'comments/form', :locals => {:commentable => commentable } %>
-
+<% end %>

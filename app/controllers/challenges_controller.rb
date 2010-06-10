@@ -1,15 +1,11 @@
 class ChallengesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :is_admin?, :except => [:index, :show]
 
   # GET /challenges
   # GET /challenges.xml
   def index
-    @challenges = Challenge.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @challenges }
-    end
+    redirect_to :root
   end
 
   # GET /challenges/1

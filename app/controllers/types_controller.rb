@@ -1,6 +1,8 @@
 class TypesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  # GET /types
+  before_filter :is_admin?, :except => [:index, :show]
+  
+  #GET /types
   # GET /types.xml
   def index
     @types = Type.all
