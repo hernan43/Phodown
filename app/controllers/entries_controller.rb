@@ -32,6 +32,11 @@ class EntriesController < ApplicationController
   def new
     @entry = current_user.entries.where(:challenge_id => @challenge.id).first || Entry.new
 
+    if @challenge.is_closed?
+      redirect_to :root
+      return
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @entry }
@@ -50,6 +55,11 @@ class EntriesController < ApplicationController
     @entry.user = current_user
     @entry.challenge = @challenge
 
+    if @entry.challenge.is_closed?
+      redirect_to :root
+      return
+    end
+
     respond_to do |format|
       if @entry.save
         format.html { redirect_to(@challenge, :notice => 'Entry was successfully created.') }
@@ -65,6 +75,11 @@ class EntriesController < ApplicationController
   # PUT /entries/1.xml
   def update
     @entry = Entry.find(params[:id])
+
+    if @entry.nil? or @entry.challenge.is_closed?
+      redirect_to :root
+      return
+    end
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
