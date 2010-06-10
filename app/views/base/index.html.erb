@@ -1,3 +1,16 @@
+<div id="recent">
+<h2>
+  Recent challenges
+</h2>
+
+<ul>
+  <% Challenge.recent.each do |challenge| %>
+    <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
+  <% end %>
+</ul>
+</div>
+
+<div id="open">
 <h2>
   Open challenges
 </h2>
@@ -7,7 +20,9 @@
     <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
   <% end %>
 </ul>
+</div>
 
+<div id="voting">
 <h2>
   Challenges needing votes
 </h2>
@@ -18,3 +33,4 @@
     <em>Voting ends in <%= distance_of_time_in_words_to_now challenge.voting_end_date %></em>
   <% end %>
 </ul>
+</div>
