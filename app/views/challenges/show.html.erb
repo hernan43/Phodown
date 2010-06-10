@@ -2,6 +2,15 @@
   <%= @challenge.name %>
 </h2>
 
+<% if @challenge.entries.empty? %>
+<p>
+There have been no submissions to this challenge.
+  <% if @challenge.is_open? %>
+    <%= link_to "Be the first!", new_challenge_entry_path(@challenge) %>
+  <% end %>
+</p>
+<% end %>
+
 <ul>
   <% @challenge.entries.each do |entry| %>
     <li>

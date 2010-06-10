@@ -7,3 +7,14 @@
     <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
   <% end %>
 </ul>
+
+<h2>
+  Challenges needing votes
+</h2>
+
+<ul>
+  <% Challenge.voting.each do |challenge| %>
+    <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
+    <em>Voting ends in <%= distance_of_time_in_words_to_now challenge.voting_end_date %></em>
+  <% end %>
+</ul>
