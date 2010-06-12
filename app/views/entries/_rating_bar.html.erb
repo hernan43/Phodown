@@ -1,5 +1,5 @@
   <%= link_to "&laquo;".html_safe, @entry.previous, {:id => "previous_link"} %>
-  <ul>
+  <ul class="rating_bar">
     <li><%= rating_link(@entry, 1, current_user) %></li>
     <li><%= rating_link(@entry, 2, current_user) %></li>
     <li><%= rating_link(@entry, 3, current_user) %></li>

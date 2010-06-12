@@ -1,11 +1,166 @@
-body {
-  background: #eeeeee;
-  color: #333333;
+/*
+      Created by Keith Donegan of Code-Sucks.com
+	  
+	  E-Mail: Keithdonegan@gmail.com
+	  
+	  You can do whatever you want with these layouts,
+	  but it would be greatly appreciated if you gave a link
+	  back to http://www.code-sucks.com
+	  
+*/
 
+* { padding: 0; margin: 0; }
+
+body {
+ font-family: "droid-serif-1","droid-serif-2","Georgia","Times New Roman","Times",serif;
+ font-size: 1.2em;
+ background: #eeeeee;
+ color: #333333;
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "ff-dax-web-pro-1","ff-dax-web-pro-2","Helvetica","Arial","Tahoma",sans-serif
+}
+
+#wrapper { 
+ margin: 0 auto;
+ width: 922px;
+}
+
+#header {
+ background: #aaaaaa;
+ border: 1px solid #ccc;
+ color: #333;
+ height: 100px;
+ margin: 10px 0px 0px 0px;
+ padding: 10px;
+ text-shadow: 0px 1px 1px #eeeeee;
+ width: 900px;
+}
+
+#header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#nav {
+ width: 900px;
+ padding: 10px;
+ border: 1px solid #ccc;
+ margin: 0px 0px 0px 0px;
+ background: #333333;
+ 
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#333333'); /* for IE */
+ background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#333)); /* for webkit browsers */
+ background: -moz-linear-gradient(top,  #666,  #333); /* for firefox 3.6+ */
+}
+
+#nav a {
+ color: inherit;
+ font-size: 1.5em;
+ font-weight: bold;
+ text-decoration: none;
+
+}
+
+.shadow {
+ color: #000;
+ text-shadow: 0px 1px 1px #999;
+}
+
+#nav ul {
+  list-style: none;
+}
+
+#nav li {
+  display: inline;
+  margin-right: 15px;
+}
+
+#content { 
+ width: 900px;
+ color: #ffffff;
+ border: 1px solid #ccc;
+ background: #666666;
+ margin: 0px 0px 0px 0px;
+ padding: 10px;
+}
+
+#content a {
+  color: #1E6986;
+  text-decoration: none;
+  text-shadow: 0px 1px 1px #999;
+}
+
+#content h2, #content h3, #content h4, #content h5 {
+ text-shadow: 0px 1px 1px #000;
+}
+
+
+#footer { 
+ width: 900px;
+ color: #333;
+ border: 1px solid #ccc;
+ background: #333333;
+ margin: 0px 0px 10px 0px;
+ padding: 10px;
 }
 
 #rating {
   font-size: 1.5em;
+}
+
+#rating ul {
+  list-style: none;
+}
+
+#rating li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.challenge {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  background: #cccccc;
+  border: 1px dotted #333;
+  color: #333;
+  padding: 5px;
+}
+
+.challenges ul {
+  list-style: none;
+}
+
+.challenges li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.clear {
+clear: both;
+}
+
+.entry {
+  float: left;
+  width: 150px;
+}
+
+.entry a {
+  color: #eeeeee !important;
+  text-decoration: none !important;
+  text-shadow: 0px 1px 1px #000 !important;
+  
+}
+
+ul.inline {
+  list-style: none;
+}
+
+.inline li {
+  display: inline;
+  margin-right: 10px;
 }
 
 .selected_rating {

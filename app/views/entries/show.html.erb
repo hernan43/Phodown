@@ -1,5 +1,7 @@
 
+<center>
 <%= image_tag @entry.photo.url(:original) %>
+</center>
 
 <h2>
   <%= @entry.title %>
@@ -10,7 +12,9 @@
 
 <% if @challenge.is_voting? and not current_user.nil? %>
   <div id="rating">
+    <center>
     <%= render :partial => 'rating_bar' %>
+    </center>
   </div>
 <% end %>
 

@@ -1,4 +1,4 @@
-<section>
+<div class="challenge">
   <h3><%= link_to challenge.name, challenge_path(challenge) %></h3>
   <p>
     <%= challenge.description %>
@@ -14,4 +14,4 @@
      <em><%= link_to "Voting ends in #{distance_of_time_in_words_to_now challenge.voting_end_date}", vote_challenge_path(challenge) %></em>
     </p>
   <% end %>
-</section>
+</div>

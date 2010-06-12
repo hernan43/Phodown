@@ -11,14 +11,14 @@ There have been no submissions to this challenge.
 </p>
 <% end %>
 
-<ul>
   <% @challenge.entries.each do |entry| %>
-    <li>
+      <div class="entry">
       <%= link_to image_tag(entry.photo.url(:thumb)), challenge_entry_path(@challenge, entry) %>
       <br/>
       <%= entry.title %>
       <br/>
-      <%= link_to "comment on this photo", "" %>
-    </li>
+      <%= link_to "comment on this photo", entry_path(entry, :anchor => "comments") %>
+      <br/>
+      </div>
   <% end %>
-</ul>
+<div class="clear"></div>

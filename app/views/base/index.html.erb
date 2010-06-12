@@ -3,9 +3,11 @@
   Recent challenges
 </h2>
 
-<ul>
+<ul class="challenges">
   <% Challenge.recent.each do |challenge| %>
+    <li>
     <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
+    </li>
   <% end %>
 </ul>
 </div>
@@ -15,9 +17,11 @@
   Open challenges
 </h2>
 
-<ul>
+<ul class="challenges">
   <% Challenge.open.each do |challenge| %>
+    <li>
     <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
+    </li>
   <% end %>
 </ul>
 </div>
@@ -27,9 +31,11 @@
   Challenges needing votes
 </h2>
 
-<ul>
+<ul class="challenges">
   <% Challenge.voting.each do |challenge| %>
+    <li>
     <%= render :partial => "challenges/challenge", :locals => {:challenge => challenge} %>
+    </li>
   <% end %>
 </ul>
 </div>
