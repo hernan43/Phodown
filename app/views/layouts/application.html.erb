@@ -3,15 +3,15 @@
 <head>
   <title>Phodown</title>
   <%= stylesheet_link_tag :all %>
-  
+
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js", 'rails.js', 'application.js' %>
-  
+
   <%= csrf_meta_tag %>
 </head>
 <body>
    <!-- Begin Wrapper -->
    <div id="wrapper">
-   
+
     <div id="header">
     <h1>
     <%= link_to "phodown", root_path%>
@@ -19,22 +19,29 @@
     <h2>
     let your shutter do the talking
     </h2>
-    </div>
-		 <!-- End Header -->
-		 
-		 <!-- Begin Naviagtion -->
-    <div id="nav">
-      <ul>
+
+      <div id="user_info">
+        <ul class="inline">
         <% if user_signed_in? %>
-          <li class="shadow">Signed in as <%= current_user.email %>. Not you? &nbsp; <%= link_to "sign out", destroy_user_session_path %></li>
+          <li class="shadow">Signed in as <%= current_user.email %>. Not you? <%= link_to "sign out", destroy_user_session_path %></li>
         <% else %>
           <li><%= link_to "sign in", new_user_session_path, :class => "shadow" %></li>
           <li><%= link_to "sign up", new_user_registration_path, :class => "shadow" %></li>
         <% end %>
+        </ul>
+      </div>
+    <div class="clear"></div>
+    </div>
+		 <!-- End Header -->
+
+		 <!-- Begin Naviagtion -->
+    <div id="nav">
+      <ul>
+        <li><%= link_to "challenges", challenges_path, :class => "shadow" %></li>
       </ul>
     </div>
 		 <!-- End Naviagtion -->
-		 
+
 		 <!-- Begin Content -->
     <div id="content">
       <p class="notice"><%= notice %></p>
@@ -44,16 +51,17 @@
     </div>
 
 		 <!-- End Content -->
-		 
+
 		 <!-- Begin Footer -->
 		 <div id="footer">
-		       
-			   This is the Footer		
-			    
+
+			   This is the Footer
+
 	     </div>
 		 <!-- End Footer -->
-		 
+
    </div>
    <!-- End Wrapper -->
 </body>
 </html>
+

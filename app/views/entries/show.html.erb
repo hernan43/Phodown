@@ -1,7 +1,23 @@
+<p>
+<%= link_to '&laquo; Back to top level'.html_safe, challenge_path(@entry.challenge) %>
+</p>
+<p>&nbsp;</p>
 
 <center>
-<%= image_tag @entry.photo.url(:original) %>
+<%= image_tag(@entry.photo.url(:original), :class => 'entry_large') %>
 </center>
+
+  <div id="rating">
+    <center>
+    <ul class="rating_bar">
+    <li><%= link_to "&laquo;".html_safe, @entry.previous, {:id => "previous_link"} %></li>
+    <% if @challenge.is_voting? and not current_user.nil? and not (@entry.user == current_user) %>
+      <%= render :partial => 'rating_bar' %>
+    <% end %>
+    <li><%= link_to "&raquo;".html_safe, @entry.next, {:id => "next_link"} %></li>
+    </ul>
+    </center>
+  </div>
 
 <h2>
   <%= @entry.title %>
@@ -10,19 +26,7 @@
 <strong>Challenge</strong>: <%= @entry.challenge.name %>
 </p>
 
-  <div id="rating">
-    <center>
-    <ul class="rating_bar">
-    <li><%= link_to "&laquo;".html_safe, @entry.previous, {:id => "previous_link"} %></li>
-    <% if @challenge.is_voting? and not current_user.nil? %>
-      <%= render :partial => 'rating_bar' %>
-    <% end %>
-    <li><%= link_to "&raquo;".html_safe, @entry.next, {:id => "next_link"} %></li>
-    </ul>
-    </center>
-  </div>
-
-<% if not @challenge.is_open? %>
+<% if @challenge.is_over? %>
 
 <p>
   <%= @entry.description %>
@@ -80,20 +84,17 @@
   <%= @entry.flash ? 'yes':'no' %>
 </p>
 
-  <% if not @challenge.is_open?%>
-  <p>
-    <b>EXIF:</b>
-    <pre>
-    <%# entry.exif %>
-    </pre>
-  </p>
-  <% end %>
-
+<div id="exif" style="display:none;">
+<p>
+  <b>EXIF:</b>
+  <pre>
+  <%= @entry.exif %>
+  </pre>
+</p>
+</div>
 <% end %>
 
-<p>
-<%= link_to 'Back', challenge_path(@entry.challenge) %>
-</p>
+<hr/>
 
 <%= render :partial => 'comments/comments_section', :locals => {:commentable => @entry } %>
 

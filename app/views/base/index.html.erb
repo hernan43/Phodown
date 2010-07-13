@@ -3,6 +3,10 @@
   Recent challenges
 </h2>
 
+<% if Challenge.recent.empty? %>
+<p>There are no recent challenges.</p>
+<% end %>
+
 <ul class="challenges">
   <% Challenge.recent.each do |challenge| %>
     <li>
@@ -16,6 +20,10 @@
 <h2>
   Open challenges
 </h2>
+
+<% if Challenge.open.empty? %>
+<p>There are no open challenges.</p>
+<% end %>
 
 <ul class="challenges">
   <% Challenge.open.each do |challenge| %>
@@ -31,6 +39,10 @@
   Challenges needing votes
 </h2>
 
+<% if Challenge.voting.empty? %>
+<p>There are no challenges requiring votes.</p>
+<% end %>
+
 <ul class="challenges">
   <% Challenge.voting.each do |challenge| %>
     <li>
@@ -39,3 +51,4 @@
   <% end %>
 </ul>
 </div>
+
