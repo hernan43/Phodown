@@ -7,23 +7,31 @@ $(document).ready(function(){
   $('a[data-remote=true]').live('click', function() {
     return request({ url : this.href });
   });
-*/  
-  $(document).keypress(function(event){
-    switch(event.which){
-      case 48: value = 10; break;
-      case 49: value = 1; break;
-      case 50: value = 2; break;
-      case 51: value = 3; break;
-      case 52: value = 4; break;
-      case 53: value = 5; break;
-      case 54: value = 6; break;
-      case 55: value = 7; break;
-      case 56: value = 8; break;
-      case 57: value = 9; break;
+*/
+  $(document).keyup(function(event){
+    switch(event.keyCode){
+      case 48: value = "#rating_10"; break;
+      case 49: value = "#rating_1"; break;
+      case 50: value = "#rating_2"; break;
+      case 51: value = "#rating_3"; break;
+      case 52: value = "#rating_4"; break;
+      case 53: value = "#rating_5"; break;
+      case 54: value = "#rating_6"; break;
+      case 55: value = "#rating_7"; break;
+      case 56: value = "#rating_8"; break;
+      case 57: value = "#rating_9"; break;
+      case 37:
+        value = "#previous_link";
+        window.location = $(value).attr('href');
+      break;
+      case 39:
+        value = "#next_link";
+        window.location = $(value).attr('href');
+      break;
       default: return;
     }
-    link_id = "#rating_" + value;
-    $(link_id).click();
+    $(value).click();
   });
 
 });
+
